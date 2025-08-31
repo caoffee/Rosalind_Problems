@@ -1,11 +1,15 @@
-# Open the file
-file = open("/Users/caochuqiu/Desktop/Rosalind Problems/rosalind_rna.txt", "r")
-string = file.read().strip().replace("\n", "") #Clean up the DNA sequence
-file.close() #always close the file after reading
+with open ("/Users/caochuqiu/Documents/Rosalind Problems/rosalind_rna.txt") as file:
+    dna = file.read().strip()
 
-#Function to turn T into U
-def transcribe(string):
-    return string.replace("T", "U")
-    
-if __name__ =="__main__":
-    print(transcribe(string))
+alphabet = {"A": "A",
+       "C": "C",
+       "G": "G",
+       "T": "U"
+       }
+
+rna = ""
+
+for letter in dna:
+    rna += alphabet.get(letter)
+
+print(rna)
