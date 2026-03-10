@@ -7,8 +7,8 @@ def parse_fasta(filename):
             line = line.strip()
             if line.startswith(">"):
                 if seq != "":
-                    sequences[header] = seq
-                header = line[1:]
+                    sequences[header] = seq #save the previous sequence before starting a new one
+                header = line[1:] #removes the > symbol
                 seq = ""
             else:
                 seq += line
